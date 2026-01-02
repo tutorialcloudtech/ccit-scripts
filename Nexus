@@ -1,0 +1,18 @@
+t3.medium with 20 GIB volume
+
+yum install java-21-amazon-corretto -y
+
+
+mkdir /app
+cd /app
+
+wget https://download.sonatype.com/nexus/3/nexus-3.87.1-01-linux-x86_64.tar.gz
+tar -zxvf nexus-3.87.1-01-linux-x86_64.tar.gz
+useradd nexus
+chown nexus:nexus nexus-3.87.1-01 sonatype-work -R
+cd nexus-3.87.1-01/bin/
+vim nexus
+run_as_user='nexus' (Line number 27 :wq)
+# cd /app/nexus-3.87.1-01/bin
+./nexus start
+./nexus status
